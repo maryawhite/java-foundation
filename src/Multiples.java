@@ -8,6 +8,7 @@ public class Multiples {
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("enter a number");
 
         int N = Integer.parseInt(bufferedReader.readLine().trim());
 
