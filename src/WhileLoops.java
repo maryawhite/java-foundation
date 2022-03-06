@@ -68,26 +68,26 @@ public class WhileLoops {
     //add lastDigit to reverse, and remove the last digit of number by dividing the number by 10
     //repeat until the number is not equal to (or greater than) zero.
 
-    public static boolean isPalindrome(int number){
-        int reverse = 0;
-
-        while(number > 0) {
-            //extract the last digit
-            int lastDigit = number % 10;
-            //increase the place value of reverse
-            reverse = reverse * 10;
-            //add lastDigit to reverse
-            reverse = reverse + lastDigit;
-            //remove last digit of number
-            number = number / 10;
-
-        }
-        if(reverse == number) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    public static boolean isPalindrome(int number){
+//        int reverse = 0;
+//
+//        while(number > 0) {
+//            //extract the last digit
+//            int lastDigit = number % 10;
+//            //increase the place value of reverse
+//            reverse = reverse * 10;
+//            //add lastDigit to reverse
+//            reverse = reverse + lastDigit;
+//            //remove last digit of number
+//            number = number / 10;
+//
+//        }
+//        if(reverse == number) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
 
     public static void main(String[] args) {
@@ -103,7 +103,5 @@ public class WhileLoops {
 //        System.out.println(sumDigits(11));    //2
 //        System.out.println(sumDigits(1));     //-1
 
-        System.out.println(isPalindrome(121));    //true
-        System.out.println(isPalindrome(223));    //false
     }
 }
