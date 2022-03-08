@@ -54,9 +54,9 @@ public class FirstAndLastDigitSum {
 
             if(digit % 2 == 0){
                 sum += digit;
-                number /= 10;  //you need to remove the last number here if it was even
+//                number /= 10;  //this does not belong here, it goes outside the if block
             }
-            number /= 10;   ////and you need to remove the last number here in case it was odd
+            number /= 10;   //remove the last number
 
         }
          return sum;
