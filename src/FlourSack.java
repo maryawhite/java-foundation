@@ -27,6 +27,34 @@
 //
 
 public class FlourSack {
+    /**EITHER METHOD BELOW WILL WORK, JUST MOVED ONE OF THE IF STATEMENTS */
+//    public static boolean canPack (int bigCount, int smallCount, int goal) {
+//        //bigCount * 5 + smallCount * 1 >= goal, but if the sum is greater ensure that only full bags are used.
+//        if (bigCount < 0 || smallCount < 0 || goal < 0) {
+//            return false;
+//        }
+//        int sum = 0;
+//        sum = ((bigCount * 5) + smallCount);
+//
+//        //if the sum is less than the goal then we can't fill it. Or you could use sum > goal in the if statement below
+//        if(sum < goal) {
+//            return false;
+//        }
+//        if(sum == goal) {
+//            return true;
+//        }
+//
+//        //do goal % 5, then use the remainder and see if the small count is >= remainder
+//        int remainder = goal % 5;
+//        if(smallCount >= remainder && smallCount > 0) {   //the small count needs to be greater than or equal to the remainder, bc we need enough to complete the order
+//            return true;
+//        } else if(bigCount == 0 && smallCount >= goal) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//
+//    }
 
     public static boolean canPack (int bigCount, int smallCount, int goal) {
         //bigCount * 5 + smallCount * 1 >= goal, but if the sum is greater ensure that only full bags are used.
@@ -34,12 +62,33 @@ public class FlourSack {
             return false;
         }
         int sum = 0;
-        sum = ((bigCount * 5) + (smallCount * 1));
+        sum = ((bigCount * 5) + smallCount);
 
-        if(sum < goal) {
+        if(sum == goal) {
+            return true;
+        }
+
+        //do goal % 5, then use the remainder and see if the small count is >= remainder
+        int remainder = goal % 5;
+        if(smallCount >= remainder && smallCount > 0 && sum > goal) {   //the small count needs to be greater than or equal to the remainder, bc we need enough to complete the order
+            return true;
+        } else if(bigCount == 0 && smallCount >= goal) {
+            return true;
+        } else {
             return false;
         }
 
-
     }
+
+    public static void main(String[] args) {
+        System.out.println(canPack(1, 4, 9));
+        System.out.println(canPack(1, 4, 10));
+        System.out.println(canPack(2, 4, 14));
+        System.out.println(canPack(1, 0, 4));
+        System.out.println(canPack(2, 1, 5));
+        System.out.println(canPack(2, 1, 11)); //why does this work? 11 % 5 is 1 and smallCount >= 1.
+
+        //the modulo is the remainder after dividing one number by another. 11 modulo 5 is 1 because 11/5 = 2 with Remainder of 1.
+    }
+
 }
