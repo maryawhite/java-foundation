@@ -44,17 +44,33 @@ public class SecondsAndMinutes {
 
         long minutes = seconds / 60;
         long remainingSeconds = seconds % 60;
-        System.out.println(getDurationString(minutes, remainingSeconds));
         return getDurationString(minutes, remainingSeconds);
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(getDurationString(125, 30)); //2h 5m 30 s
-        System.out.println(getDurationString(7530));
+    public static String getPacePerMile(long minutes, long seconds, double miles) {
+        long minToSec = minutes * 60;
+        long totalSeconds = minToSec + seconds;
+        double average = totalSeconds / miles;
+        long calcMinutes = (long) (average / 60); //This need to be a whole number not decimal
+        long remainingSeconds = (long) (average % 60);
+        String secondsString = remainingSeconds + "";
+        if(remainingSeconds < 10) {
+            secondsString = "0" + remainingSeconds + "";
+        }
+        return "Your average pace is " + calcMinutes + ":" + secondsString + " per mile";
 
-        System.out.println(getDurationString(65, 45));
-        System.out.println(getDurationString(3945));
+    }
+
+    public static void main(String[] args) {
+//        System.out.println(getDurationString(125, 30)); //2h 5m 30 s
+//        System.out.println(getDurationString(7530));
+//
+//        System.out.println(getDurationString(65, 45));
+//        System.out.println(getDurationString(3945));
+        System.out.println(getPacePerMile(16, 25, 2));
+        System.out.println(getPacePerMile(18, 0, 2));
+        System.out.println(getPacePerMile(6, 0, .5));
     }
 
 }
