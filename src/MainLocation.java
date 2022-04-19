@@ -23,23 +23,30 @@ public class MainLocation {
         locations.get(1).addExit("E", 3);
         locations.get(1).addExit("S", 4);
         locations.get(1).addExit("N", 5);
-        locations.get(1).addExit("Q", 0);
+//        locations.get(1).addExit("Q", 0);               //instead of listing Q multiple times, we can put it in the constructor in the Location class
 
         locations.get(2).addExit("N", 5);
-        locations.get(2).addExit("Q", 0);
+//        locations.get(2).addExit("Q", 0);
 
         locations.get(3).addExit("W", 1);
-        locations.get(3).addExit("Q", 0);
+//        locations.get(3).addExit("Q", 0);
 
         locations.get(4).addExit("N", 1);
         locations.get(4).addExit("W", 2);
-        locations.get(4).addExit("Q", 0);
+//        locations.get(4).addExit("Q", 0);
 
         locations.get(5).addExit("S", 1);
         locations.get(5).addExit("W", 2);
-        locations.get(5).addExit("Q", 0);
+//        locations.get(5).addExit("Q", 0);
 
-
+        //add an option that allows players to type in the full word North, South, East, West
+        //create a new hash map
+        Map<String, String> vocabulary = new HashMap<String, String>();
+        vocabulary.put("QUIT", "Q");
+        vocabulary.put("NORTH", "N");  //these words need to be uppercase
+        vocabulary.put("SOUTH", "S");
+        vocabulary.put("WEST", "W");
+        vocabulary.put("EAST", "E");
 
         int loc = 1;
         while(true) {
@@ -52,12 +59,26 @@ public class MainLocation {
 
             Map<String, Integer> exits = locations.get(loc).getExits();
             System.out.print("Available exits are: ");
+            for(String exit: exits.keySet()) {
+                System.out.print(exit + ", ");
+            }
+            System.out.println();
 
-//            for()
-
-            loc = scanner.nextInt();
-            if(!locations.containsKey(loc)) {
-                System.out.println("You cannot go in the direction.");
+            String direction = scanner.nextLine().toUpperCase();  //we're using the toUpperCase method in case the user types in a lower case letter
+            //check the direction, if the length is greater than one, use an enhanced for loop to loop through it and look for one of the keys
+            if(direction.length() > 1) {
+                String[] words = direction.split(" ");
+                for(String word: words) {
+                    if(vocabulary.containsKey(word)) {
+                        direction = vocabulary.get(word);
+                        break;
+                    }
+                }
+            }
+            if(exits.containsKey(direction)) {
+                loc = exits.get(direction);
+            } else {
+                System.out.println("You cannot go in that direction.");
             }
         }
     }
