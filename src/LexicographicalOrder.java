@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class LexicographicalOrder {
     //split it into substrings of length k first
-    //then put those strings in lexicographical order
+    //then use compareTo to determine the lexicographical order
 
     public static String getSmallestAndLargest(String s, int k) {
         String smallest = "";

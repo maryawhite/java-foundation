@@ -22,6 +22,9 @@ public class Anagram {
     public static void main(String[] args) {
 //        System.out.println(isAnagram("cat", "act"));  //true
 //        System.out.println(isAnagram("car", "bar"));  //false
+        System.out.println(isAnagramNoArrays("cat", "act"));  //true
+        System.out.println(isAnagramNoArrays("Cat", "act"));  //true
+        System.out.println(isAnagramNoArrays("car", "bar"));  //false
     }
 
 
@@ -29,17 +32,23 @@ public class Anagram {
         if(a.length() != b.length()) {
             return false;
         }
+        boolean isAnagram = false;
+        //change everything to lowercase
+        a = a.toLowerCase();
+        b = b.toLowerCase();
 
-        //turn everything lower case and split it into an array
-        String[] aSplit = a.toLowerCase().split("");
-        String[] bSplit = b.toLowerCase().split("");
-
-        Arrays.sort(aSplit);
-        Arrays.sort(bSplit);
-
-
-    return false;
-
+        char[] arr = a.toCharArray();
+        StringBuilder temp = new StringBuilder(b);
+        for(char ch : arr) {
+            System.out.println("ch " + ch);
+            int index = temp.indexOf("" + ch);
+            System.out.println("line 45" + temp.indexOf("" + ch));
+            if(index != -1) {    //if no value exists, -1 is returned, so this is saying if the character exists, delete it.
+                temp.deleteCharAt(index);
+            }
+        }
+        isAnagram = temp.toString().isEmpty();
+        return isAnagram;
     }
 
     //helper class to sort a String alphabetically
