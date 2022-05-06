@@ -26,6 +26,7 @@ public class MapExercise {
         System.out.println("-------------------");
         //you can remove items from a map too
 //        languages.remove("Lisp");
+
         //or remove a key if it's mapped to a certain value. remove is a boolean
         if(languages.remove("Algo", "a family of algorithmic languages.")) {
             System.out.println("Algo removed");
@@ -44,9 +45,6 @@ public class MapExercise {
             System.out.println(key + " : " + languages.get(key)); //get returns the value for that key
         }
 
-
-
-
-
     }
 }
+//hash maps have a key and value. Use put to add a key/value to the map

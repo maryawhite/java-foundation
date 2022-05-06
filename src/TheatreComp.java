@@ -16,7 +16,7 @@ public class TheatreComp {
                 } else if (seat1.getPrice() > seat2.getPrice()) {
                     return 1;  //bc it should be sorted after
                 } else {
-                    return 0;  //they're equal so return 0
+                    return 0;  //they're equal (the price is equal, not the seat number) so return 0
                 }
             }
         };
