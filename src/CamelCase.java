@@ -11,7 +11,9 @@ public class CamelCase {
 
         String[] splitStr = s.split("[- |_]");
         String newString = "";
-        for(int i = 0; i < splitStr.length; i++) {
+        newString += splitStr[0];
+
+        for(int i = 1; i < splitStr.length; i++) {
             newString += splitStr[i].substring(0, 1).toUpperCase() + splitStr[i].substring(1);
         }
 
@@ -19,9 +21,9 @@ public class CamelCase {
     }
 
     public static void main(String[] args) {
-        System.out.println(toCamelCase("the-stealth-warrior"));
+        System.out.println(toCamelCase("the-stealth-warrior"));  //theStealhWarrior  Note that the first t does not change
+        System.out.println(toCamelCase("Mary-had-a"));          //MaryHadA   Note that the first M is capital because it originally was
 
-        //Need to fix this so the very first letter is not capitalized
     }
 
 }
