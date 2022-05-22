@@ -44,13 +44,25 @@ public class PaceCalculator {
         return "your pace " + finalPace + " per mile, formatted " + formatted;
     }
 
+    public static double calculateDistance(double time, double pace) {
+        return time/pace;
+    }
+
+//    public static String calculateDistance(double time, double pace) {
+//        //      System.out.println("double : " + String.format("%.2f", input));
+//        double distance;
+//        distance = time/pace;
+//        return String.format("%2f", distance);
+//    }
+
 
     public static void main(String[] args) {
 //        System.out.println(minToSec(8));   //8:00 = 480 seconds
 //        System.out.println(minToSeconds(8, 40));    //8:40 = 520 seconds
 //        System.out.println(minToSecondsAlt(8, 40));    //8:40 = 520 seconds
         System.out.println(calculatePace(28, 32, 3.1));
-
+        System.out.println("distance " + calculateDistance(28.53, 9.20));
+        System.out.println("distance " + calculateDistance(30, 10.00));
 
     }
 
