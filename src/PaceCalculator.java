@@ -98,7 +98,7 @@ public class PaceCalculator {
 //        System.out.println(minToSecondsAlt(8, 40));    //8:40 = 520 seconds
 //        System.out.println(convertFractionOfAMinute(32));
 
-//        System.out.println(calculatePace(28, 32, 3.107F));  // 9:11
+        System.out.println(calculatePace(28, 32, 3.107F));  // 9:11
 //        System.out.println(calculatePace(18, 45, 3.1F));  // 6:03
 //        System.out.println(calculatePace(21, 32, 3.1F));  // 6:57
 //        System.out.println(calculatePace(24, 0, 3.1F));  //7:45
@@ -114,7 +114,7 @@ public class PaceCalculator {
 //        System.out.println(calculatePace(60, 60, 7F)); // 8:43
 //        System.out.println(calculatePace(120, 60, 7F)); // 17:17
 
-        System.out.println(calculateDistance(21.5F, 7.5F));
+//        System.out.println(calculateDistance(21.5F, 7.5F));
 
 
         //https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html
