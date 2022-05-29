@@ -58,6 +58,20 @@ public class Loops {
         }
     }
 
+    //Al ate 1 hot dog, Bob had 3, Carl had 5. This continued with each person eating 2 more
+    //than the previous person. How many did the 26th person eat and how many total hot dogs were eaten
+    //how would I know who is the 26th person, and how would I count the total number of hot dogs
+    public static void hotdogs() {
+        int sum = 0;
+        int lastPerson = 0;
+        for (int i = 1; i <= 52; i+=2) {
+            lastPerson = i;
+            sum += i;
+        }
+        System.out.println("26th " + lastPerson);
+        System.out.println("sum " + sum);
+    }
+
     //sum 3 & 5 challenge
     //write a for loop from 1-1000 inclusive
     //sum all the numbers that can be divided by both 3 & 5, print those numbers
@@ -120,10 +134,11 @@ public class Loops {
 //
 //        printPrimeNumbers(100);
 
-//        printByTwos(20);
+//        printByTwos(26);
+        hotdogs();         //use 52 because we're counting by 2s, to the 26th person would be at 52
 //        print3And5Challenge(500);
-        System.out.println(sumOdd(1, 5));
-        System.out.println(sumOdd(10, 5));
+//        System.out.println(sumOdd(1, 5));
+//        System.out.println(sumOdd(10, 5));
 
     }
 }

@@ -28,7 +28,7 @@ public class BankAccountV2 {
 
     //method to withdraw
     //Make sure your withdraw method throws an exception if appropriate.
-    public boolean withdraw(double withdrawAmount) throws Exception {
+    public boolean withdraw(double withdrawAmount) {
         if(withdrawAmount < 0) {
             System.out.println("please enter your withdrawal as a positive amount");
             return false;
