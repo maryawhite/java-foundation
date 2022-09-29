@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class BoxingandUnboxing {
 
     public static void main(String[] args) {
-        //you can't use primited types as objects
+        //you can't use primitive types as objects
         //but there is a wrapper class
 
         //you can't do the following, "type argument cannot be of primitive type"
