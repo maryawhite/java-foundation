@@ -25,14 +25,14 @@ public class CalculateTip {
         return tipAmount;
     }
 
-    //write another method, with parameters of the tip percent and total
-    public BigDecimal calculateTipAmount(double total, double tip) {
+    //write another method, with parameters of the tip percent and total price. enter the tip as a whole number, then divide by 100 to get the percent.
+    public BigDecimal calculateTipAmount(double total, int tip) {
         BigDecimal tipAmount;
         if(total < 0 || tip < 0) {
             tipAmount = new BigDecimal(0);
         } else {
-            double cost = total * (tip / 100);
-            tipAmount = new BigDecimal(cost).setScale(2, RoundingMode.HALF_UP);
+            double tipAm = total * (tip / 100D);
+            tipAmount = new BigDecimal(tipAm).setScale(2, RoundingMode.HALF_UP);
         }
         return tipAmount;
     }
@@ -50,7 +50,7 @@ public class CalculateTip {
 
 //        System.out.println(calculateTip.tip18Percent(-10));
 
-        System.out.println(calculateTip.calculateTipAmount(100, 18));
+        System.out.println(calculateTip.calculateTipAmount(100.00, 18));
 //        System.out.println(calculateTip.calculateTipAmount(10.10, 18));
 //        System.out.println(calculateTip.calculateTipAmount(10, 20));
 //        System.out.println(calculateTip.calculateTipAmount(15, 10));

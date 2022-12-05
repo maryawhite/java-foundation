@@ -38,10 +38,17 @@ public class CalculateTipTest {
 
     @Test
     public void calculateTipAmountTest() {
-
+        assertEquals(BigDecimal.valueOf(18).setScale(2, RoundingMode.HALF_UP), ct.calculateTipAmount(100.00, 18));
+        assertEquals(BigDecimal.valueOf(1.08).setScale(2, RoundingMode.HALF_UP), ct.calculateTipAmount(9.00, 12));
     }
 
     @Test
-    public void calculateTipNegativeAmountTest() {
+    public void calculateTipNegativeTotalTest() {
+        assertEquals(BigDecimal.valueOf(0), ct.calculateTipAmount(-100.00, 18));
+    }
+
+    @Test
+    public void calculateTipNegativeTipTest() {
+        assertEquals(BigDecimal.valueOf(0), ct.calculateTipAmount(100.00, -18));
     }
 }
